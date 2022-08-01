@@ -77,7 +77,7 @@ public class TechJobs {
         Boolean validChoice = false;
         String[] choiceKeys = new String[choices.size()];
 
-        // Put the choices in an ordered structure so we can
+        // Put the choices in an ordered structure, so we can
         // associate an integer with each one
         int i = 0;
         for (String choiceKey : choices.keySet()) {
@@ -118,8 +118,19 @@ public class TechJobs {
     }
 
     // Print a list of jobs
+    //To do this, you’ll need to iterate over an ArrayList of jobs. Each job is itself a HashMap. While you can get each of the items out of the HashMap using the known keys (employer, location, etc.), think instead about creating a nested loop to loop over each HashMap. If a new field is added to the job records, this approach will print out the new field without any updates to printJobs.
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
+        if(someJobs.size() == 0) {
+            System.out.print("No Results");
+        }
+        for (HashMap<String,String> job : someJobs) {
+            System.out.println("\n*****");
+            for (String actualJob : job.keySet()) {
+                System.out.println(actualJob + ": " + job.get(actualJob));
+            }
+           System.out.println("*****");
+        }
 
-        System.out.println("printJobs is not implemented yet");
+
     }
 }
